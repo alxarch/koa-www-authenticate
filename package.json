@@ -1,6 +1,6 @@
 {
   "name": "koa-www-authenticate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Add WWW-Authenticate header on 401 errors",
   "main": "index.js",
   "scripts": {
