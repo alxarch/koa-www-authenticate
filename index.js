@@ -10,7 +10,7 @@ module.exports = (options) => {
 	delete options.scheme;
 
 	const HEADER = Object.keys(options).reduce((result, key) => {
-		result.push(`${key}=\"${result}\"`);
+		result.push(`${key}=\"${options[key]}\"`);
 		return result;
 	}, [SCHEME]).join(' ');
 
@@ -23,7 +23,7 @@ module.exports = (options) => {
 				err.headers = Object.assign({
 					'WWW-Authenticate': HEADER
 				}, err.headers);
-			} 
+			}
 			throw err;
 		}
 	};
