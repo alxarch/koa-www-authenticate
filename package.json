@@ -1,0 +1,24 @@
+{
+  "name": "koa-www-authenticate",
+  "version": "0.1.0",
+  "description": "Add WWW-Authenticate header on 401 errors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sigalas Alexandros <alxarch@gmail.com>",
+  "license": "ISC",
+  "keywords": [
+    "koa",
+    "www-authenticate",
+    "unauthorized"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alxarch/koa-www-authenticate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alxarch/koa-www-authenticate/issues"
+  },
+  "homepage": "https://github.com/alxarch/koa-www-authenticate#readme"
+}
