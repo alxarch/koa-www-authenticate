@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (options) => {
+module.exports = function createWWWMiddleware (options) {
 	options = Object.assign({
 		scheme: 'Basic',
 		realm: 'Realm'
@@ -14,7 +14,7 @@ module.exports = (options) => {
 		return result;
 	}, [SCHEME]).join(' ');
 
-	return function *(next) {
+	return function *wwwMiddleware(next) {
 		try {
 			yield next;
 		}

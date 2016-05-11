@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/alxarch/koa-www-authenticate/issues"
   },
-  "homepage": "https://github.com/alxarch/koa-www-authenticate#readme"
+  "homepage": "https://github.com/alxarch/koa-www-authenticate#readme",
+  "devDependencies": {
+    "co": "^4.6.0"
+  }
 }
