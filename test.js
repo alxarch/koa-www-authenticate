@@ -2,11 +2,11 @@
 
 const assert = require('assert');
 const co = require('co');
+const createWWW = require('./index.js');
 const options = {
 	scheme: 'Basic',
 	realm: 'fooooo'
 };
-const createWWW = require('./index.js');
 
 describe('tests error throwing', function () {
 	it('tests status error', function () {
