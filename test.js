@@ -2,26 +2,37 @@
 
 const assert = require('assert');
 const co = require('co');
-const createWWW = require('./index.js');
-const options = {
-	scheme: 'Basic',
-	realm: 'fooooo'
-};
+const createWWWMiddleware = require('.');
 
-describe('tests error throwing', function () {
-	it('tests status error', function () {
+describe('Koa www auth middleware', function () {
+	it('Fixes headers on 401 errors', function () {
 		const ctx = {};
+		let middleware = createWWWMiddleware({
+			realm: 'foo'
+		});
 		const err = new Error();
 		err.status = 401;
-		err.headers = null;
-		let www = createWWW(options);
-		co(www.call(ctx, Promise.reject(err)))
-			.then(function(res) {
-				assert(false, 'Should never get here');
-			})
-			.catch( function (err) {
-				console.log('Hello this is error', err.headers);
-				assert.equal(err.headers, 'foo', 'Error headers are ok');
-			})
+		co(middleware.call(ctx, Promise.reject(err)))
+		.then(function(res) {
+			assert(false, 'Should never get here');
+		})
+		.catch( function (err) {
+			assert.equal(err.headers['WWW-Authenticate'], 'Basix realm=\"foo\"', 'Adds header');
+		});
+	});
+	it('Ignores non 401 errors', function () {
+		const ctx = {};
+		let middleware = createWWWMiddleware({
+			realm: 'foo'
+		});
+		const err = new Error();
+		err.status = 400;
+		co(middleware.call(ctx, Promise.reject(err)))
+		.then(function(res) {
+			assert(false, 'Should never get here');
+		})
+		.catch( function (err) {
+			assert.equal(err.header, null, 'Added no headers');
+		});
 	});
 });
