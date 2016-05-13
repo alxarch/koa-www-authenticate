@@ -4,7 +4,7 @@
   "description": "Add WWW-Authenticate header on 401 errors",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha test.js"
   },
   "author": "Sigalas Alexandros <alxarch@gmail.com>",
   "license": "ISC",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/alxarch/koa-www-authenticate#readme",
   "devDependencies": {
-    "co": "^4.6.0"
+    "co": "^4.6.0",
+    "mocha": "^2.4.5"
   }
 }
